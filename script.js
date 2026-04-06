@@ -1,12 +1,9 @@
-// ==========================================
-// VISION FINANCE - SCRIPT PRINCIPAL
-// ==========================================
+// ========================================
+// VISION FINANCE - JavaScript Completo
+// ========================================
 
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // ==========================================
-    // TYPING EFFECT - HERO SECTION
-    // ==========================================
+// Typing Animation
+function initTypingAnimation() {
     const words = ['CPF', 'CNPJ', 'Score', 'Crédito', 'Futuro'];
     let wordIndex = 0;
     let charIndex = 0;
@@ -14,8 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const typingElement = document.getElementById('typing');
     
     function type() {
-        if (!typingElement) return;
-        
         const currentWord = words[wordIndex];
         
         if (isDeleting) {
@@ -25,9 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
             typingElement.textContent = currentWord.substring(0, charIndex + 1);
             charIndex++;
         }
-    
+        
         let typeSpeed = isDeleting ? 50 : 100;
-    
+        
         if (!isDeleting && charIndex === currentWord.length) {
             typeSpeed = 2000;
             isDeleting = true;
@@ -36,37 +31,113 @@ document.addEventListener('DOMContentLoaded', function() {
             wordIndex = (wordIndex + 1) % words.length;
             typeSpeed = 500;
         }
-    
+        
         setTimeout(type, typeSpeed);
     }
     
-    // Iniciar typing effect
-    type();
+    if (typingElement) {
+        type();
+    }
+}
+
+// Number Counter Animation
+function animateNumbers() {
+    const stats = document.querySelectorAll('.stat-number');
     
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px'
+    };
     
-    // ==========================================
-    // HEADER - SHOW/HIDE ON SCROLL
-    // ==========================================
-    const header = document.getElementById('header');
-    let lastScroll = 0;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const countTo = parseInt(target.getAttribute('data-target'));
+                const duration = 2000;
+                const startTime = performance.now();
+                
+                function updateNumber(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Easing function - easeOutQuart
+                    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                    const current = Math.floor(countTo * easeOutQuart);
+                    
+                    target.textContent = current.toLocaleString('pt-BR');
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateNumber);
+                    } else {
+                        target.textContent = countTo.toLocaleString('pt-BR');
+                    }
+                }
+                
+                requestAnimationFrame(updateNumber);
+                observer.unobserve(target);
+            }
+        });
+    }, observerOptions);
     
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        // Mostrar header após scroll de 100px
-        if (currentScroll > 100) {
-            header.classList.add('visible');
-        } else {
-            header.classList.remove('visible');
-        }
-        
-        lastScroll = currentScroll;
+    stats.forEach(stat => observer.observe(stat));
+}
+
+// FAQ Accordion
+function toggleFaq(button) {
+    const faqItem = button.parentElement;
+    const isActive = faqItem.classList.contains('active');
+    
+    // Close all FAQ items
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
     });
     
+    // Open clicked if wasn't active
+    if (!isActive) {
+        faqItem.classList.add('active');
+    }
+}
+
+function initFAQ() {
+    // Close all on load
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+    });
+}
+
+// Mobile Menu Toggle
+function toggleMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenu.classList.toggle('active');
+}
+
+// Smooth Scroll
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            
+            if (target) {
+                const headerOffset = 100;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+// Scroll Animations
+function initScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
     
-    // ==========================================
-    // INTERSECTION OBSERVER - SCROLL ANIMATIONS
-    // ==========================================
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -76,175 +147,120 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                
-                // Animar contadores se houver dentro do elemento
-                const counters = entry.target.querySelectorAll('.stat-number');
-                counters.forEach(counter => {
-                    const target = parseInt(counter.getAttribute('data-target'));
-                    if (target && !counter.classList.contains('counted')) {
-                        counter.classList.add('counted');
-                        animateCounter(counter, target);
-                    }
-                });
-                
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
-    // Observar todos os elementos com animação
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-        observer.observe(el);
-    });
+    animatedElements.forEach(el => observer.observe(el));
+}
+
+// Header Scroll Effect
+function initHeaderScroll() {
+    const header = document.getElementById('header');
+    let lastScroll = 0;
     
-    // Função para animar contadores
-    function animateCounter(element, target) {
-        const duration = 2000;
-        const step = target / (duration / 16);
-        let current = 0;
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
         
-        function updateCounter() {
-            current += step;
-            if (current < target) {
-                element.textContent = Math.floor(current).toLocaleString();
-                requestAnimationFrame(updateCounter);
-            } else {
-                element.textContent = target.toLocaleString() + (target > 100 ? '+' : '');
-            }
-        }
-        
-        updateCounter();
-    }
-    
-    
-    // ==========================================
-    // FAQ - ACCORDION
-    // ==========================================
-    window.toggleFaq = function(button) {
-        const item = button.parentElement;
-        const isActive = item.classList.contains('active');
-        
-        // Fechar todos os itens
-        document.querySelectorAll('.faq-item').forEach(faq => {
-            faq.classList.remove('active');
-        });
-        
-        // Abrir o clicado se não estava ativo
-        if (!isActive) {
-            item.classList.add('active');
-        }
-    };
-    
-    
-    // ==========================================
-    // SMOOTH SCROLL - ANCHOR LINKS
-    // ==========================================
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const target = document.querySelector(targetId);
-            if (target) {
-                const offsetTop = target.offsetTop - 80; // Compensar header fixo
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    
-    // ==========================================
-    // MOBILE MENU
-    // ==========================================
-    window.toggleMenu = function() {
-        const nav = document.querySelector('nav');
-        nav.classList.toggle('mobile-open');
-        
-        // Alternar ícone
-        const btn = document.querySelector('.mobile-menu-btn i');
-        if (nav.classList.contains('mobile-open')) {
-            btn.classList.remove('fa-bars');
-            btn.classList.add('fa-times');
+        if (currentScroll > 100) {
+            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
         } else {
-            btn.classList.remove('fa-times');
-            btn.classList.add('fa-bars');
+            header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
         }
-    };
+        
+        lastScroll = currentScroll;
+    });
+}
+
+// Parallax Effect
+function initParallax() {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        
+        if (hero && scrolled < window.innerHeight) {
+            const circles = document.querySelectorAll('.hero-circle');
+            circles.forEach((circle, index) => {
+                const speed = 0.3 + (index * 0.1);
+                circle.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        }
+    });
+}
+
+// WhatsApp Tracking
+function initWhatsAppTracking() {
+    const whatsappButtons = document.querySelectorAll('a[href*="wa.me"]');
     
-    // Fechar menu ao clicar em link (mobile)
-    document.querySelectorAll('.nav-cta').forEach(link => {
-        link.addEventListener('click', () => {
-            const nav = document.querySelector('nav');
-            nav.classList.remove('mobile-open');
-            const btn = document.querySelector('.mobile-menu-btn i');
-            if (btn) {
-                btn.classList.remove('fa-times');
-                btn.classList.add('fa-bars');
-            }
+    whatsappButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Aqui você pode adicionar tracking do Google Analytics, Facebook Pixel, etc.
+            console.log('WhatsApp clicado:', btn.href);
+            
+            // Exemplo de tracking:
+            // gtag('event', 'conversion', {
+            //     'send_to': 'AW-XXXXXXXX/XXXXXXXX',
+            //     'value': 40.0,
+            //     'currency': 'BRL'
+            // });
         });
     });
+}
+
+// Urgency Counter Animation
+function initUrgencyCounter() {
+    const counter = document.querySelector('.urgency-counter strong');
+    if (!counter) return;
     
+    let count = 7;
+    const minCount = 3;
     
-    // ==========================================
-    // BUTTON RIPPLE EFFECT
-    // ==========================================
-    document.querySelectorAll('.btn-primary, .btn-pricing, .nav-cta').forEach(button => {
-        button.addEventListener('click', function(e) {
-            // Não aplicar se for link externo (WhatsApp)
-            if (this.getAttribute('target') === '_blank') return;
+    setInterval(() => {
+        if (count > minCount && Math.random() > 0.7) {
+            count--;
+            counter.textContent = count + ' vagas';
             
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const ripple = document.createElement('span');
-            ripple.style.cssText = `
-                position: absolute;
-                background: rgba(255,255,255,0.3);
-                border-radius: 50%;
-                transform: scale(0);
-                animation: ripple 0.6s linear;
-                pointer-events: none;
-                left: ${x}px;
-                top: ${y}px;
-                width: 100px;
-                height: 100px;
-                margin-left: -50px;
-                margin-top: -50px;
-            `;
-            
-            this.style.position = 'relative';
-            this.style.overflow = 'hidden';
-            this.appendChild(ripple);
-            
-            setTimeout(() => ripple.remove(), 600);
-        });
-    });
+            // Flash effect
+            counter.style.color = '#fff';
+            setTimeout(() => {
+                counter.style.color = '';
+            }, 300);
+        }
+    }, 15000); // Check every 15 seconds
+}
+
+// Initialize Everything
+function init() {
+    initTypingAnimation();
+    animateNumbers();
+    initFAQ();
+    initSmoothScroll();
+    initScrollAnimations();
+    initHeaderScroll();
+    initParallax();
+    initWhatsAppTracking();
+    initUrgencyCounter();
     
-    // Adicionar keyframe para ripple dinamicamente
-    if (!document.getElementById('ripple-style')) {
-        const style = document.createElement('style');
-        style.id = 'ripple-style';
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
+    console.log('Vision Finance website initialized successfully!');
+}
+
+// DOM Ready
+document.addEventListener('DOMContentLoaded', init);
+
+// Handle resize
+window.addEventListener('resize', () => {
+    // Close mobile menu on resize to desktop
+    if (window.innerWidth > 768) {
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenu) {
+            mobileMenu.classList.remove('active');
+        }
     }
-    
-    
-    // ==========================================
-    // CONSOLE MESSAGE
-    // ==========================================
-    console.log('%c Vision Finance ', 'background: linear-gradient(135deg, #0066cc, #00c853); color: white; font-size: 20px; font-weight: bold; padding: 10px 20px; border-radius: 10px;');
-    console.log('%cSite carregado com sucesso! 🚀', 'color: #00c853; font-size: 14px;');
-    
 });
+
+// Prevent console errors in production
+window.onerror = function(msg, url, line) {
+    console.log('Error: ' + msg + '\nURL: ' + url + '\nLine: ' + line);
+    return false;
+};
