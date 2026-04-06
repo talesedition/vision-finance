@@ -1016,10 +1016,11 @@ footer {
 }
 
 .footer-logo-img {
-    height: 60px;
+    height: 240px;
     width: auto;
     object-fit: contain;
     filter: brightness(1.1);
+    margin-bottom: 1.5rem;
 }
 
 .footer-text {
@@ -1186,6 +1187,6 @@ footer {
     }
     
     .footer-logo-img {
-        height: 45px;
+        height: 180px;
     }
 }
