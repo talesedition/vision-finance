@@ -3,31 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vision Finance | Análise e Regularização Financeira</title>
-    <meta name="description" content="Consultoria especializada em análise de CPF/CNPJ. Identificamos pendências e criamos estratégias personalizadas para regularização.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Limpar Nome e Recuperar Score | Vision Finance</title>
+    <meta name="description" content="Especialistas em limpeza de nome para CPF e CNPJ. Consulta a partir de R$ 40. Mais de 19 anos de experiência em regularização financeira.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <link rel="stylesheet" href="style.css">
-    <base target="_blank">
 </head>
 <body>
 
-    <!-- Urgency Bar -->
+    <!-- Barra de Urgência -->
     <div class="urgency-bar">
         <div class="urgency-content">
-            <span class="urgency-icon">⚡</span>
-            <span class="urgency-text">Oferta válida apenas para os primeiros 20 atendimentos desta semana</span>
-            <span class="urgency-counter">Restam apenas <strong>7 vagas</strong></span>
+            <span class="urgency-icon"><i class="fas fa-clock"></i></span>
+            <span>Atendimento imediato via WhatsApp</span>
+            <span class="urgency-counter"><strong>7 vagas</strong> para consulta hoje</span>
         </div>
     </div>
 
     <!-- Header -->
     <header id="header">
-        <nav class="nav-container">
+        <div class="nav-container">
             <a href="#" class="logo">
+                <div class="logo-glow"></div>
                 <img src="img/logo.jpeg" alt="Vision Finance" class="logo-img">
                 <div class="logo-text">
                     <span class="logo-main">VISION</span>
@@ -35,30 +34,29 @@
                 </div>
             </a>
             
-            <div class="nav-center">
+            <nav class="nav-center">
                 <a href="#como-funciona" class="nav-link">Como Funciona</a>
+                <a href="#servicos" class="nav-link">Serviços</a>
                 <a href="#precos" class="nav-link">Preços</a>
-                <a href="#depoimentos" class="nav-link">Depoimentos</a>
                 <a href="#faq" class="nav-link">FAQ</a>
-            </div>
-
-            <a href="https://wa.me/5585964626294?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20consulta" class="nav-cta" target="_blank">
+            </nav>
+            
+            <a href="https://chat.visionfinance.com.br" class="nav-cta" target="_blank">
                 <i class="fab fa-whatsapp"></i>
-                <span>Falar Agora</span>
+                <span>Falar no WhatsApp</span>
             </a>
             
             <button class="mobile-menu-btn" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </button>
-        </nav>
+        </div>
         
-        <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <a href="#como-funciona" onclick="toggleMenu()">Como Funciona</a>
+            <a href="#servicos" onclick="toggleMenu()">Serviços</a>
             <a href="#precos" onclick="toggleMenu()">Preços</a>
-            <a href="#depoimentos" onclick="toggleMenu()">Depoimentos</a>
             <a href="#faq" onclick="toggleMenu()">FAQ</a>
-            <a href="https://wa.me/5585964626294?text=Olá!%20Quero%20saber%20mais" class="mobile-cta" target="_blank">
+            <a href="https://chat.visionfinance.com.br" class="mobile-cta" target="_blank">
                 <i class="fab fa-whatsapp"></i> Falar no WhatsApp
             </a>
         </div>
@@ -67,653 +65,533 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg-elements">
+            <div class="hero-grid"></div>
             <div class="hero-circle hero-circle-1"></div>
             <div class="hero-circle hero-circle-2"></div>
-            <div class="hero-grid"></div>
         </div>
         
-        <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fas fa-check-circle"></i> 
-                <span>Empresa registrada • CNPJ Ativo • 19 anos de experiência</span>
-            </div>
-            
-            <h1 class="hero-title">
-                Descubra o que está bloqueando seu<br>
-                <span class="typing-text" id="typing"></span><span class="cursor">|</span>
-            </h1>
-            
-            <p class="hero-subtitle">
-                Análise completa do seu CPF ou CNPJ em minutos. 
-                Identificamos todas as pendências e criamos um plano estratégico 
-                personalizado para sua regularização financeira.
-            </p>
-
-            <!-- Price Highlight Box -->
-            <div class="hero-price-box">
-                <div class="price-badge">
-                    <i class="fas fa-tag"></i> PROMOÇÃO ESPECIAL
-                </div>
-                <div class="price-content">
-                    <div class="price-left">
-                        <span class="price-label">Análise Completa</span>
-                        <div class="price-value-wrapper">
-                            <span class="price-currency">R$</span>
-                            <span class="price-value">40</span>
-                            <span class="price-cents">,00</span>
-                        </div>
-                        <span class="price-original">De R$ 120,00</span>
-                    </div>
-                    <div class="price-divider"></div>
-                    <div class="price-right">
-                        <div class="installment-option">
-                            <i class="fas fa-credit-card"></i>
-                            <span class="installment-text">ou em até</span>
-                            <span class="installment-value">12x de R$ 4,17</span>
-                            <span class="installment-note">no cartão</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="price-features-mini">
-                    <span><i class="fas fa-check"></i> Relatório em 24h</span>
-                    <span><i class="fas fa-check"></i> Todas as bases consultadas</span>
-                    <span><i class="fas fa-check"></i> Suporte WhatsApp</span>
-                </div>
-            </div>
-
-            <div class="hero-buttons">
-                <a href="https://wa.me/5585964626294?text=Olá!%20Quero%20fazer%20a%20consulta%20de%20R$40" class="btn-primary" target="_blank">
-                    <i class="fab fa-whatsapp"></i> 
-                    <div class="btn-text">
-                        <span class="btn-main">Quero minha análise agora</span>
-                        <span class="btn-sub">Resposta em até 24 horas</span>
-                    </div>
-                </a>
-                <a href="#como-funciona" class="btn-secondary">
-                    <i class="fas fa-play-circle"></i> Como funciona
-                </a>
-            </div>
-
-            <div class="hero-trust">
-                <div class="trust-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Pagamento Seguro</span>
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-lock"></i>
-                    <span>LGPD Compliant</span>
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-undo"></i>
-                    <span>7 Dias de Garantia</span>
-                </div>
-            </div>
-
-            <div class="hero-stats">
-                <div class="stat animate-on-scroll">
-                    <span class="stat-number" data-target="10000">0</span>
-                    <span class="stat-plus">+</span>
-                    <span class="stat-label">Análises realizadas</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat animate-on-scroll delay-1">
-                    <span class="stat-number" data-target="19">0</span>
-                    <span class="stat-label">Anos de mercado</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat animate-on-scroll delay-2">
-                    <span class="stat-number" data-target="98">0</span>
-                    <span class="stat-percent">%</span>
-                    <span class="stat-label">Satisfação dos clientes</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Problem Section -->
-    <section class="problem">
         <div class="container">
-            <div class="section-header animate-on-scroll">
-                <span class="section-tag">O Problema</span>
-                <h2>Seu nome está sujo e você nem sabe quanto deve?</h2>
-                <p class="section-subtitle">
-                    Milhares de brasileiros perdem oportunidades todos os dias porque não conhecem sua situação real.
-                </p>
-            </div>
-
-            <div class="problem-grid">
-                <div class="problem-content animate-on-scroll">
-                    <div class="problem-text">
-                        <p class="problem-highlight">
-                            Bancos negam crédito, lojas recusam parcelamentos e você fica sem entender por quê.
-                        </p>
-                        <p class="problem-description">
-                            Sem um diagnóstico completo, você está navegando às cegas na sua vida financeira. 
-                            Dívidas esquecidas crescem silenciosamente, juros abusivos se acumulam, 
-                            e restrições indevidas prejudicam seu score sem que você saiba.
-                        </p>
-                    </div>
-                    
-                    <ul class="problem-list">
-                        <li>
-                            <div class="problem-icon-small"><i class="fas fa-chart-line"></i></div>
-                            <div>
-                                <strong>Dívidas esquecidas</strong>
-                                <span>crescendo com juros abusivos</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="problem-icon-small"><i class="fas fa-ban"></i></div>
-                            <div>
-                                <strong>Restrições indevidas</strong>
-                                <span>que prejudicam seu score</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="problem-icon-small"><i class="fas fa-question-circle"></i></div>
-                            <div>
-                                <strong>Falta de clareza</strong>
-                                <span>sobre quem são os credores</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="problem-icon-small"><i class="fas fa-exclamation-triangle"></i></div>
-                            <div>
-                                <strong>Medo de consultar</strong>
-                                <span>por não saber por onde começar</span>
-                            </div>
-                        </li>
-                    </ul>
+            <div class="hero-content">
+                <div class="hero-badge animate-on-scroll">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Mais de 10.000 consultas realizadas</span>
                 </div>
                 
-                <div class="problem-visual animate-on-scroll delay-1">
-                    <div class="problem-card">
-                        <div class="problem-card-header">
-                            <i class="fas fa-exclamation-circle"></i>
-                            <span>Situação Encontrada</span>
+                <h1 class="hero-title animate-on-scroll delay-1">
+                    Limpe seu nome e volte a <br>
+                    <span class="typing-text" id="typing">conquistar crédito</span><span class="cursor">|</span>
+                </h1>
+                
+                <p class="hero-subtitle animate-on-scroll delay-2">
+                    Identificamos as pendências do seu CPF ou CNPJ e cuidamos de todo o processo 
+                    para limpar seu nome e recuperar seu score com segurança. 
+                    <strong>19 anos de experiência</strong> no mercado financeiro.
+                </p>
+                
+                <div class="hero-price-box animate-on-scroll delay-3">
+                    <div class="price-badge"><i class="fas fa-tag"></i> Oferta por tempo limitado</div>
+                    <div class="price-content">
+                        <div class="price-left">
+                            <span class="price-label">Consulta completa a partir de</span>
+                            <div class="price-value-wrapper">
+                                <span class="price-currency">R$</span>
+                                <span class="price-value">40</span>
+                                <span class="price-cents">,00</span>
+                            </div>
+                            <span class="price-note">À vista no PIX ou Cartão</span>
                         </div>
-                        <div class="debt-list">
-                            <div class="debt-item">
-                                <div class="debt-icon red"><i class="fas fa-store"></i></div>
-                                <div class="debt-info">
-                                    <strong>Varejista X</strong>
-                                    <span class="debt-value">R$ 1.247,00</span>
-                                    <span class="debt-status">Inadimplente há 14 meses</span>
-                                </div>
-                                <div class="debt-badge">SPC</div>
+                        <div class="price-divider"></div>
+                        <div class="price-right">
+                            <div class="installment-option">
+                                <i class="fas fa-check-circle"></i>
+                                <span class="installment-text">Relatório em 24h</span>
+                                <span class="installment-value">Todas as bases consultadas</span>
+                                <span class="installment-note">CPF e CNPJ</span>
                             </div>
-                            <div class="debt-item">
-                                <div class="debt-icon red"><i class="fas fa-university"></i></div>
-                                <div class="debt-info">
-                                    <strong>Banco Y</strong>
-                                    <span class="debt-value">R$ 4.890,00</span>
-                                    <span class="debt-status">Protesto registrado</span>
-                                </div>
-                                <div class="debt-badge">Protesto</div>
-                            </div>
-                            <div class="debt-item">
-                                <div class="debt-icon red"><i class="fas fa-mobile-alt"></i></div>
-                                <div class="debt-info">
-                                    <strong>Operadora Z</strong>
-                                    <span class="debt-value">R$ 456,00</span>
-                                    <span class="debt-status">SPC/Serasa</span>
-                                </div>
-                                <div class="debt-badge">Serasa</div>
-                            </div>
-                            <div class="debt-item resolved">
-                                <div class="debt-icon green"><i class="fas fa-check"></i></div>
-                                <div class="debt-info">
-                                    <strong>Financiamento W</strong>
-                                    <span class="debt-value">R$ 0,00</span>
-                                    <span class="debt-status">Quitado em 2023</span>
-                                </div>
-                                <div class="debt-badge resolved">OK</div>
-                            </div>
-                        </div>
-                        <div class="debt-total">
-                            <span>Total em aberto:</span>
-                            <strong>R$ 6.593,00</strong>
                         </div>
                     </div>
+                    <div class="price-features-mini">
+                        <span><i class="fas fa-check"></i> Serasa, SPC, Boa Vista</span>
+                        <span><i class="fas fa-check"></i> Suporte WhatsApp</span>
+                        <span><i class="fas fa-check"></i> 7 dias garantia</span>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons animate-on-scroll delay-4">
+                    <a href="https://chat.visionfinance.com.br" class="btn-primary large" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <div class="btn-text">
+                            <span class="btn-main">Quero limpar meu nome agora</span>
+                            <span class="btn-sub">Clique para falar no WhatsApp →</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="hero-trust animate-on-scroll delay-5">
+                    <div class="trust-item"><i class="fas fa-lock"></i> <span>Site 100% Seguro</span></div>
+                    <div class="trust-item"><i class="fas fa-user-shield"></i> <span>Dados Protegidos LGPD</span></div>
+                    <div class="trust-item"><i class="fas fa-building"></i> <span>CNPJ Verificado</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Solution Section -->
-    <section class="solution">
+    <!-- Banner 1 - Chamativo -->
+    <section class="banner-section banner-green">
         <div class="container">
-            <div class="section-header animate-on-scroll">
-                <span class="section-tag">A Solução</span>
-                <h2>Conheça exatamente sua situação em 3 passos</h2>
-                <p class="section-subtitle">
-                    Processo simples, rápido e 100% seguro. Você recebe um relatório completo em até 24 horas.
-                </p>
+            <div class="banner-content animate-on-scroll">
+                <i class="fas fa-bolt"></i>
+                <h2>Não deixe seu nome sujo impedir seus sonhos</h2>
+                <p>Imóvel, carro, cartão de crédito... tudo fica mais fácil quando seu nome está limpo</p>
             </div>
+        </div>
+    </section>
 
+    <!-- Como Funciona -->
+    <section id="como-funciona" class="section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Processo Simples</span>
+                <h2>Como Funciona o Processo de Limpeza de Nome</h2>
+                <p class="section-subtitle">Em poucos passos, você entende sua situação financeira e recebe uma solução completa para limpar seu nome, recuperar seu score e voltar a ter crédito no mercado.</p>
+            </div>
+            
             <div class="steps-grid">
                 <div class="step-card animate-on-scroll">
-                    <div class="step-number">01</div>
+                    <div class="step-number">1</div>
                     <div class="step-icon">
-                        <i class="fab fa-whatsapp"></i>
+                        <i class="fas fa-id-card"></i>
                     </div>
-                    <h3>Envie seu documento</h3>
-                    <p>Entre em contato pelo WhatsApp e envie seu CPF ou CNPJ de forma 100% segura e criptografada.</p>
-                    <div class="step-time">
-                        <i class="fas fa-clock"></i> 2 minutos
-                    </div>
+                    <h3>Informe seu CPF ou CNPJ</h3>
+                    <p>Informe seu CPF ou CNPJ de forma segura em nosso sistema protegido. Esse é o primeiro passo para identificar exatamente o que está impedindo seu nome de seguir em frente.</p>
+                    <span class="step-time"><i class="fas fa-clock"></i> 2 minutos</span>
                 </div>
-
+                
                 <div class="step-card animate-on-scroll delay-1">
-                    <div class="step-number">02</div>
+                    <div class="step-number">2</div>
                     <div class="step-icon">
                         <i class="fas fa-search-dollar"></i>
                     </div>
-                    <h3>Receba o diagnóstico</h3>
-                    <p>Em até 24h você recebe um relatório completo com todas as pendências, valores e credores identificados.</p>
-                    <div class="step-time">
-                        <i class="fas fa-clock"></i> 24 horas
-                    </div>
+                    <h3>Visualize todas as pendências</h3>
+                    <p>Você visualiza de forma clara e organizada todas as dívidas, restrições e registros que estão impactando seu nome e seu score. Aqui você entende o problema real, sem surpresas.</p>
+                    <span class="step-time"><i class="fas fa-clock"></i> Relatório em 24h</span>
                 </div>
-
+                
                 <div class="step-card animate-on-scroll delay-2">
-                    <div class="step-number">03</div>
+                    <div class="step-number">3</div>
                     <div class="step-icon">
-                        <i class="fas fa-handshake"></i>
+                        <i class="fas fa-broom"></i>
                     </div>
-                    <h3>Escolha o caminho</h3>
-                    <p>Com os dados em mãos, você decide: podemos intermediar negociações ou você resolve por conta própria.</p>
-                    <div class="step-time">
-                        <i class="fas fa-infinity"></i> Você decide
+                    <h3>Nós cuidamos da limpeza do seu nome</h3>
+                    <p>Após a análise, apresentamos uma proposta personalizada para limpar seu nome, regularizar suas pendências e aumentar seu score. Nossa equipe cuida de todo o processo.</p>
+                    <span class="step-time"><i class="fas fa-clock"></i> Até 30 dias úteis</span>
+                </div>
+            </div>
+            
+            <div class="quote-box animate-on-scroll">
+                <p>"Entender suas dívidas é o primeiro passo. Limpar seu nome é o que muda sua vida."</p>
+                <a href="https://chat.visionfinance.com.br" class="btn-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Quero limpar meu nome agora
+                </a>
+                <span class="quote-note">Consulta rápida. Solução completa. Atendimento 100% online.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Score Section - Velocímetro -->
+    <section class="score-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Aumento de Score</span>
+                <h2>Recupere seu Score de Crédito</h2>
+                <p class="section-subtitle">Acompanhe visualmente como trabalhamos para aumentar sua pontuação e melhorar seu histórico financeiro.</p>
+            </div>
+            
+            <div class="score-visual animate-on-scroll">
+                <div class="speedometer">
+                    <div class="speedometer-bg"></div>
+                    <div class="speedometer-fill" id="speedometerFill"></div>
+                    <div class="speedometer-center">
+                        <span class="score-value" id="scoreValue">0</span>
+                        <span class="score-label">SCORE</span>
+                    </div>
+                    <div class="speedometer-needle" id="needle"></div>
+                </div>
+                <div class="score-info">
+                    <div class="score-phase active" data-phase="1">
+                        <i class="fas fa-search"></i>
+                        <span>Análise Inicial</span>
+                    </div>
+                    <div class="score-phase" data-phase="2">
+                        <i class="fas fa-file-medical"></i>
+                        <span>Regularização</span>
+                    </div>
+                    <div class="score-phase" data-phase="3">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Aumento do Score</span>
                     </div>
                 </div>
             </div>
-
-            <!-- What You Receive -->
-            <div class="what-you-get animate-on-scroll">
-                <h3>O que você recebe na análise de R$ 40,00:</h3>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
-                        <div class="feature-text">
-                            <strong>Relatório Completo</strong>
-                            <span>PDF detalhado com todas as pendências</span>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-list-ul"></i></div>
-                        <div class="feature-text">
-                            <strong>Lista de Credores</strong>
-                            <span>Nomes, valores e contatos atualizados</span>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
-                        <div class="feature-text">
-                            <strong>Análise de Score</strong>
-                            <span>Situação atual e projeção de melhora</span>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
-                        <div class="feature-text">
-                            <strong>Recomendações</strong>
-                            <span>Priorização de dívidas estratégica</span>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-gavel"></i></div>
-                        <div class="feature-text">
-                            <strong>Consulta Jurídica</strong>
-                            <span>Verificação de processos e protestos</span>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-headset"></i></div>
-                        <div class="feature-text">
-                            <strong>Suporte Personalizado</strong>
-                            <span>Tire dúvidas pelo WhatsApp</span>
-                        </div>
-                    </div>
+            
+            <div class="score-features animate-on-scroll">
+                <div class="score-feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Identificação de fatores negativos</span>
+                </div>
+                <div class="score-feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Estratégia personalizada de recuperação</span>
+                </div>
+                <div class="score-feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Acompanhamento mensal da evolução</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Detailed Pricing Section -->
+    <!-- Banner 2 -->
+    <section class="banner-section banner-blue">
+        <div class="container">
+            <div class="banner-content animate-on-scroll">
+                <i class="fas fa-shield-alt"></i>
+                <h2>Proteção contra golpes</h2>
+                <p>Nunca pedimos pagamento por PIX pessoal. Somos empresa registrada com CNPJ ativo e pagamento processado via gateway seguro.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preços -->
     <section id="precos" class="pricing-detailed">
         <div class="container">
-            <div class="section-header animate-on-scroll">
+            <div class="section-header">
                 <span class="section-tag">Investimento</span>
-                <h2>Escolha o melhor plano para você</h2>
-                <p class="section-subtitle">
-                    Transparente e sem surpresas. Compare as opções e escolha a que melhor atende suas necessidades.
-                </p>
+                <h2>Consulta de CPF e CNPJ para Limpeza de Nome</h2>
+                <p class="section-subtitle">Descubra agora todas as dívidas, restrições e bloqueios no seu CPF ou CNPJ e dê o primeiro passo para limpar seu nome.</p>
+            </div>
+            
+            <div class="consulta-highlight animate-on-scroll">
+                <div class="consulta-badge">Mais Popular</div>
+                <div class="consulta-grid">
+                    <div class="consulta-info">
+                        <h3>Consulta Completa CPF/CNPJ</h3>
+                        <div class="price-table">
+                            <div class="price-row">
+                                <span class="price-label-table">À vista no PIX</span>
+                                <span class="price-value-table highlight">R$ 40,00</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label-table">No cartão (1x)</span>
+                                <span class="price-value-table">R$ 44,00</span>
+                            </div>
+                        </div>
+                        <ul class="consulta-features">
+                            <li><i class="fas fa-check"></i> Veja todas as dívidas no seu CPF ou CNPJ</li>
+                            <li><i class="fas fa-check"></i> Saiba exatamente quem negativou seu nome</li>
+                            <li><i class="fas fa-check"></i> Descubra valores, datas e origem das restrições</li>
+                            <li><i class="fas fa-check"></i> Primeiro passo para limpar seu nome de forma estratégica</li>
+                            <li><i class="fas fa-check"></i> Consulta rápida, segura e sigilosa</li>
+                        </ul>
+                        <div class="consulta-alert">
+                            <i class="fas fa-info-circle"></i> Relatório completo em até 24 horas úteis
+                        </div>
+                    </div>
+                    <div class="consulta-cta">
+                        <a href="https://chat.visionfinance.com.br" class="btn-primary xlarge" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <div class="btn-text">
+                                <span class="btn-main">Quero consultar agora</span>
+                                <span class="btn-sub">Falar no WhatsApp</span>
+                            </div>
+                        </a>
+                        <div class="consulta-security">
+                            <i class="fas fa-lock"></i>
+                            <span>Dados protegidos por criptografia</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Price Comparison Table -->
-            <div class="pricing-comparison animate-on-scroll">
-                <div class="comparison-header">
-                    <div class="comparison-title">
-                        <i class="fas fa-calculator"></i>
-                        <span>Compare os valores</span>
-                    </div>
+            <div class="services-section" id="servicos">
+                <div class="services-header animate-on-scroll">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Já sabe o que deve?</h3>
+                    <p>Vá Direto ao Serviço de Limpeza de Nome</p>
+                    <span>Se você já possui o relatório do seu CPF/CNPJ e quer ir direto para a regularização, escolha sua opção abaixo.</span>
                 </div>
                 
                 <div class="comparison-cards">
-                    <!-- Análise Card -->
-                    <div class="comparison-card basic">
-                        <div class="card-badge">MAIS POPULAR</div>
+                    <div class="comparison-card basic animate-on-scroll">
+                        <span class="card-badge">CPF</span>
                         <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-file-alt"></i></div>
-                            <h3>Análise Completa</h3>
-                            <p>Diagnóstico completo da sua situação</p>
+                            <div class="card-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3>Pessoa Física</h3>
+                            <p>Limpe seu nome pessoal</p>
                         </div>
                         
                         <div class="card-price">
-                            <div class="price-old">De R$ 120,00</div>
-                            <div class="price-main">
-                                <span class="currency">R$</span>
-                                <span class="amount">40</span>
-                                <span class="cents">,00</span>
-                            </div>
-                            <div class="price-note">Pagamento único</div>
-                        </div>
-
-                        <div class="installment-details">
-                            <div class="installment-title"><i class="fas fa-credit-card"></i> Parcelamento:</div>
-                            <div class="installment-options">
-                                <div class="installment-row">
-                                    <span class="installment-times">1x</span>
-                                    <span class="installment-value">R$ 40,00</span>
-                                    <span class="installment-total">Total: R$ 40,00</span>
+                            <div class="price-options">
+                                <div class="price-option">
+                                    <span class="price-option-label">À vista no PIX</span>
+                                    <span class="price-option-value">R$ 499,90</span>
                                 </div>
-                                <div class="installment-row">
-                                    <span class="installment-times">3x</span>
-                                    <span class="installment-value">R$ 14,17</span>
-                                    <span class="installment-total">Total: R$ 42,51</span>
-                                </div>
-                                <div class="installment-row">
-                                    <span class="installment-times">6x</span>
-                                    <span class="installment-value">R$ 7,37</span>
-                                    <span class="installment-total">Total: R$ 44,22</span>
-                                </div>
-                                <div class="installment-row">
-                                    <span class="installment-times">12x</span>
-                                    <span class="installment-value">R$ 4,17</span>
-                                    <span class="installment-total">Total: R$ 50,04</span>
+                                <div class="price-option highlighted">
+                                    <span class="price-option-label">Ou 12x no cartão</span>
+                                    <span class="price-option-value">R$ 49,99</span>
                                 </div>
                             </div>
                         </div>
-
+                        
                         <ul class="card-features">
-                            <li><i class="fas fa-check"></i> Consulta em todas as bases (SPC, Serasa, Boa Vista)</li>
-                            <li><i class="fas fa-check"></i> Relatório detalhado em PDF</li>
-                            <li><i class="fas fa-check"></i> Identificação de todos os credores</li>
-                            <li><i class="fas fa-check"></i> Análise de score e viabilidade</li>
-                            <li><i class="fas fa-check"></i> Verificação de protestos e processos</li>
-                            <li><i class="fas fa-check"></i> Suporte por WhatsApp (7 dias)</li>
-                            <li><i class="fas fa-check"></i> Entrega em até 24 horas</li>
-                            <li class="disabled"><i class="fas fa-times"></i> Intermediação com credores</li>
-                            <li class="disabled"><i class="fas fa-times"></i> Acompanhamento contínuo</li>
+                            <li><i class="fas fa-check"></i> Atendimento personalizado</li>
+                            <li><i class="fas fa-check"></i> Prazo de até 30 dias úteis</li>
+                            <li><i class="fas fa-check"></i> Negociação com descontos</li>
+                            <li><i class="fas fa-check"></i> Acompanhamento via WhatsApp</li>
+                            <li class="disabled"><i class="fas fa-times"></i> Análise empresarial</li>
                         </ul>
-
-                        <a href="https://wa.me/5585964626294?text=Olá!%20Quero%20a%20consulta%20de%20R$40" class="btn-card" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Quero Análise
+                        
+                        <div class="disclaimer-card">
+                            <i class="fas fa-info-circle"></i>
+                            <small>Não garantimos resultados. Prazo é estimativa.</small>
+                        </div>
+                        
+                        <a href="https://chat.visionfinance.com.br" class="btn-card" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Contratar para CPF
                         </a>
                     </div>
-
-                    <!-- Intermediação Card -->
-                    <div class="comparison-card premium">
-                        <div class="card-badge featured">RECOMENDADO</div>
+                    
+                    <div class="comparison-card premium animate-on-scroll delay-1">
+                        <span class="card-badge featured">CNPJ</span>
                         <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-broom"></i></div>
-                            <h3>Intermediação Completa</h3>
-                            <p>Nós resolvemos tudo por você</p>
+                            <div class="card-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3>Pessoa Jurídica</h3>
+                            <p>Regularize sua empresa</p>
                         </div>
                         
                         <div class="card-price">
-                            <div class="price-old">De R$ 2.999,00</div>
-                            <div class="price-main">
-                                <span class="currency">R$</span>
-                                <span class="amount">999</span>
-                                <span class="cents">,00</span>
-                            </div>
-                            <div class="price-note">ou a partir de 4x R$ 249,75 no cartão</div>
-                        </div>
-
-                        <div class="installment-details">
-                            <div class="installment-title"><i class="fas fa-credit-card"></i> Parcelamento:</div>
-                            <div class="installment-options">
-                                <div class="installment-row highlight">
-                                    <span class="installment-times">4x</span>
-                                    <span class="installment-value">R$ 249,75</span>
-                                    <span class="installment-total">Total: R$ 999,00</span>
-                                    <span class="installment-badge">Sem juros</span>
+                            <div class="price-options">
+                                <div class="price-option">
+                                    <span class="price-option-label">À vista no PIX</span>
+                                    <span class="price-option-value">R$ 997,00</span>
                                 </div>
-                                <div class="installment-row">
-                                    <span class="installment-times">6x</span>
-                                    <span class="installment-value">R$ 184,17</span>
-                                    <span class="installment-total">Total: R$ 1.105,02</span>
-                                </div>
-                                <div class="installment-row">
-                                    <span class="installment-times">12x</span>
-                                    <span class="installment-value">R$ 99,92</span>
-                                    <span class="installment-total">Total: R$ 1.199,04</span>
+                                <div class="price-option highlighted">
+                                    <span class="price-option-label">Ou 12x no cartão</span>
+                                    <span class="price-option-value">R$ 99,99</span>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="savings-badge">
-                            <i class="fas fa-piggy-bank"></i>
-                            <span>Economize R$ 40 (valor da consulta incluso)</span>
-                        </div>
-
+                        
                         <ul class="card-features">
-                            <li class="highlight"><i class="fas fa-star"></i> <strong>Tudo da Análise +</strong></li>
-                            <li><i class="fas fa-check"></i> Intermediação com todos os credores</li>
-                            <li><i class="fas fa-check"></i> Estratégia personalizada de negociação</li>
-                            <li><i class="fas fa-check"></i> Descontos de até 90% nas dívidas</li>
-                            <li><i class="fas fa-check"></i> Acompanhamento até a conclusão</li>
-                            <li><i class="fas fa-check"></i> Proteção de dados LGPD</li>
-                            <li><i class="fas fa-check"></i> Suporte prioritário 24/7</li>
-                            <li><i class="fas fa-check"></i> Garantia de satisfação (7 dias)</li>
+                            <li><i class="fas fa-check"></i> Atendimento personalizado</li>
+                            <li><i class="fas fa-check"></i> Prazo de até 30 dias úteis</li>
+                            <li><i class="fas fa-check"></i> Negociação com descontos</li>
+                            <li><i class="fas fa-check"></i> Acompanhamento via WhatsApp</li>
+                            <li class="highlight"><i class="fas fa-check"></i> Análise empresarial completa</li>
+                            <li class="highlight"><i class="fas fa-check"></i> Suporte prioritário</li>
                         </ul>
-
-                        <a href="https://wa.me/5585964626294?text=Olá!%20Quero%20conhecer%20o%20serviço%20completo" class="btn-card featured" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Quero Resolver Tudo
+                        
+                        <div class="disclaimer-card">
+                            <i class="fas fa-info-circle"></i>
+                            <small>Não garantimos resultados. Prazo é estimativa.</small>
+                        </div>
+                        
+                        <a href="https://chat.visionfinance.com.br" class="btn-card featured" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Contratar para CNPJ
                         </a>
                     </div>
                 </div>
-            </div>
-
-            <!-- Payment Methods -->
-            <div class="payment-methods-section animate-on-scroll">
-                <h3><i class="fas fa-credit-card"></i> Formas de Pagamento</h3>
-                <div class="payment-methods-grid">
-                    <div class="payment-method">
-                        <div class="method-icon"><i class="fas fa-qrcode"></i></div>
-                        <div class="method-info">
-                            <strong>PIX</strong>
-                            <span>À vista com 5% de desconto</span>
-                            <span class="method-value">R$ 38,00</span>
-                        </div>
-                    </div>
-                    <div class="payment-method">
-                        <div class="method-icon"><i class="fas fa-credit-card"></i></div>
-                        <div class="method-info">
-                            <strong>Cartão de Crédito</strong>
-                            <span>Até 12x no cartão</span>
-                            <span class="method-value">A partir de 4x R$ 10,00</span>
-                        </div>
-                    </div>
-                    <div class="payment-method">
-                        <div class="method-icon"><i class="fas fa-barcode"></i></div>
-                        <div class="method-info">
-                            <strong>Boleto Bancário</strong>
-                            <span>À vista ou parcelado</span>
-                            <span class="method-value">R$ 40,00 ou 4x R$ 10,25</span>
-                        </div>
-                    </div>
-                    <div class="payment-method">
-                        <div class="method-icon"><i class="fas fa-university"></i></div>
-                        <div class="method-info">
-                            <strong>Transferência</strong>
-                            <span>TED/DOC ou transferência</span>
-                            <span class="method-value">R$ 40,00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Security Notice -->
-            <div class="security-notice animate-on-scroll">
-                <div class="security-icon"><i class="fas fa-shield-alt"></i></div>
-                <div class="security-text">
-                    <strong>Pagamento 100% Seguro</strong>
-                    <p>Utilizamos criptografia SSL e gateways de pagamento certificados. Seus dados financeiros nunca são armazenados em nossos servidores.</p>
-                </div>
-            </div>
-
-            <!-- Disclaimer -->
-            <div class="pricing-disclaimer animate-on-scroll">
-                <div class="disclaimer-icon"><i class="fas fa-info-circle"></i></div>
-                <div class="disclaimer-text">
-                    <strong>Importante:</strong> Prestamos serviço de <strong>intermediação e consultoria</strong>. 
-                    Não garantimos a exclusão de registros, pois isso depende de análise individual e autorização 
-                    dos órgãos competentes. Cada caso é único e tratado com transparência desde o primeiro contato.
+                
+                <div class="consulta-tip animate-on-scroll">
+                    <i class="fas fa-lightbulb"></i>
+                    <p><strong>Dica:</strong> Se você ainda não sabe suas dívidas, faça a consulta primeiro a partir de <strong>R$ 40,00</strong></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Trust Section -->
-    <section class="trust">
+    <!-- Banner 3 -->
+    <section class="banner-section banner-gradient">
         <div class="container">
-            <div class="trust-grid">
-                <div class="trust-item animate-on-scroll">
-                    <div class="trust-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h4>Dados Seguros</h4>
-                    <p>Criptografia SSL e conformidade total com a LGPD</p>
-                </div>
-                <div class="trust-item animate-on-scroll delay-1">
-                    <div class="trust-icon"><i class="fas fa-building"></i></div>
-                    <h4>CNPJ Ativo</h4>
-                    <p>Empresa regularizada e consultável na Receita Federal</p>
-                </div>
-                <div class="trust-item animate-on-scroll delay-2">
-                    <div class="trust-icon"><i class="fas fa-gavel"></i></div>
-                    <h4>Processo Legal</h4>
-                    <p>Todas as intermediações dentro da lei e ética profissional</p>
-                </div>
-                <div class="trust-item animate-on-scroll delay-3">
-                    <div class="trust-icon"><i class="fas fa-lock"></i></div>
-                    <h4>Privacidade</h4>
-                    <p>Seus dados nunca são compartilhados com terceiros</p>
-                </div>
-            </div>
-
-            <div class="trust-warning animate-on-scroll">
-                <div class="warning-icon"><i class="fas fa-exclamation-triangle"></i></div>
-                <div class="warning-text">
-                    <strong>Cuidado com golpes:</strong> Nunca pedimos senha de banco, pagamento por PIX para conta pessoal 
-                    ou prometemos "limpar nome em 24h". Desconfie de milagres financeiros. Sempre verifique o CNPJ da empresa 
-                    antes de contratar qualquer serviço.
-                </div>
+            <div class="banner-content animate-on-scroll">
+                <i class="fas fa-stopwatch"></i>
+                <h2>Tempo é dinheiro</h2>
+                <p>Quanto mais tempo você espera, mais juros acumula. Regularize agora e pare de perder dinheiro.</p>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section id="depoimentos" class="testimonials">
+    <!-- Diferenciais -->
+    <section class="diferenciais">
         <div class="container">
-            <div class="section-header animate-on-scroll">
+            <div class="section-header">
+                <span class="section-tag">Por Que Nos Escolher</span>
+                <h2>Por Que Escolher a Vision Finance</h2>
+                <p class="section-subtitle">Oferecemos a melhor experiência em consulta de CPF/CNPJ e regularização financeira com segurança e transparência.</p>
+            </div>
+            
+            <div class="features-grid-4">
+                <div class="feature-box animate-on-scroll">
+                    <div class="feature-icon-blue">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4>Dados confiáveis</h4>
+                    <p>Consultamos as principais bases de dados do mercado para garantir informações precisas.</p>
+                </div>
+                
+                <div class="feature-box animate-on-scroll delay-1">
+                    <div class="feature-icon-blue">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Segurança LGPD</h4>
+                    <p>Seus dados são protegidos por criptografia. Seguimos todas as normas da LGPD.</p>
+                </div>
+                
+                <div class="feature-box animate-on-scroll delay-2">
+                    <div class="feature-icon-blue">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h4>Experiência</h4>
+                    <p>Anos de experiência em análise financeira e regularização de crédito.</p>
+                </div>
+                
+                <div class="feature-box animate-on-scroll delay-3">
+                    <div class="feature-icon-blue">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h4>Processo rápido</h4>
+                    <p>Relatórios gerados rapidamente. Você não precisa esperar.</p>
+                </div>
+            </div>
+            
+            <div class="center-cta animate-on-scroll">
+                <a href="https://chat.visionfinance.com.br" class="btn-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Quero consultar com segurança
+                </a>
+                <p>Junte-se a milhares de clientes satisfeitos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anti-Golpe com Escudo -->
+    <section class="anti-fraude">
+        <div class="container">
+            <div class="section-header">
+                <div class="shield-icon-big animate-on-scroll">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <span class="section-tag warning-tag">Fique atento</span>
+                <h2>Como Evitar Golpes na Limpeza de Nome</h2>
+                <p class="section-subtitle">Infelizmente, o mercado de recuperação de crédito tem muitos golpistas. Saiba como identificá-los.</p>
+            </div>
+            
+            <div class="fraude-grid">
+                <div class="fraude-card alert animate-on-scroll">
+                    <div class="fraude-icon alert-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Sinais de Golpe</h3>
+                    <p>Desconfie de empresas ou pessoas que:</p>
+                    <ul>
+                        <li><i class="fas fa-times"></i> Prometem limpar nome em 24 horas</li>
+                        <li><i class="fas fa-times"></i> Pedem pagamento apenas por PIX pessoal</li>
+                        <li><i class="fas fa-times"></i> Não possuem CNPJ verificável</li>
+                        <li><i class="fas fa-times"></i> Garantem resultados impossíveis</li>
+                    </ul>
+                </div>
+                
+                <div class="fraude-card safe animate-on-scroll delay-1">
+                    <div class="fraude-icon safe-icon">
+                        <i class="fas fa-check-shield"></i>
+                    </div>
+                    <h3>Nossa Atuação Legal</h3>
+                    <p>Conosco você tem a garantia de:</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Empresa registrada com CNPJ ativo</li>
+                        <li><i class="fas fa-check"></i> Pagamento seguro via Asaas/Gateway</li>
+                        <li><i class="fas fa-check"></i> Processos transparentes e éticos</li>
+                        <li><i class="fas fa-check"></i> Atendimento humano e personalizado</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="disclaimer-box animate-on-scroll">
+                <i class="fas fa-info-circle"></i>
+                <p><strong>Transparência:</strong> Não garantimos resultados específicos. O prazo de 30 dias é uma estimativa baseada em nossa experiência, mas pode variar conforme a complexidade do caso.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
                 <span class="section-tag">Depoimentos</span>
-                <h2>O que dizem nossos clientes</h2>
-                <p class="section-subtitle">Mais de 10.000 pessoas já confiaram na Vision Finance</p>
+                <h2>Clientes que Limparam o Nome</h2>
+                <p class="section-subtitle">Veja o que dizem clientes que consultaram e regularizaram sua situação financeira.</p>
             </div>
-
+            
             <div class="testimonials-grid">
                 <div class="testimonial-card animate-on-scroll">
                     <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">
-                        "Fiz a consulta achando que devia pouco, mas descobri dívidas antigas que nem lembrava. 
-                        O relatório foi super detalhado e em 20 dias estava tudo negociado. Atendimento excelente!"
-                    </p>
+                    <p class="testimonial-text">"Fiz a consulta e descobri dívidas que nem sabia que existiam. Em 3 semanas consegui limpar meu nome e já consegui aprovação no cartão. Atendimento excelente!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">JS</div>
                         <div class="author-info">
                             <strong>João Silva</strong>
-                            <span>São Paulo, SP • Análise + Intermediação</span>
+                            <span>São Paulo, SP</span>
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="testimonial-card animate-on-scroll delay-1">
                     <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">
-                        "Minha empresa estava com o CNPJ bloqueado e não conseguia emitir nota fiscal. 
-                        A Vision Finance intermediou com os credores e conseguimos reabrir as portas. 
-                        Profissionais sérios e competentes."
-                    </p>
+                    <p class="testimonial-text">"Minha empresa estava com o nome sujo há anos. A Vision Finance negociou descontos de 70% nas dívidas. Processo transparente do início ao fim."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">MC</div>
                         <div class="author-info">
                             <strong>Maria Costa</strong>
-                            <span>Rio de Janeiro, RJ • Intermediação Empresarial</span>
+                            <span>Rio de Janeiro, RJ</span>
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="testimonial-card animate-on-scroll delay-2">
                     <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">
-                        "O relatório de R$ 40 foi muito detalhado. Apesar de não ter como quitar tudo de uma vez, 
-                        eles me ajudaram a priorizar as dívidas mais urgentes. Já quitei 3 das 5 e meu score subiu 150 pontos!"
-                    </p>
+                    <p class="testimonial-text">"Aumentaram meu score em 150 pontos em 2 meses. Me deram um passo a passo claro e me ajudaram em todas as etapas. Recomendo demais!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">PO</div>
                         <div class="author-info">
                             <strong>Pedro Oliveira</strong>
-                            <span>Belo Horizonte, MG • Análise Completa</span>
+                            <span>Belo Horizonte, MG</span>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Stats Banner -->
+            
             <div class="stats-banner animate-on-scroll">
+                <div class="stat-banner-item">
+                    <span class="stat-banner-number">+10.000</span>
+                    <span class="stat-banner-label">Consultas realizadas</span>
+                </div>
+                <div class="stat-banner-divider"></div>
                 <div class="stat-banner-item">
                     <span class="stat-banner-number">4.9/5</span>
                     <span class="stat-banner-label">Avaliação média</span>
                 </div>
                 <div class="stat-banner-divider"></div>
                 <div class="stat-banner-item">
-                    <span class="stat-banner-number">10.000+</span>
-                    <span class="stat-banner-label">Clientes atendidos</span>
-                </div>
-                <div class="stat-banner-divider"></div>
-                <div class="stat-banner-item">
                     <span class="stat-banner-number">98%</span>
-                    <span class="stat-banner-label">Recomendam</span>
+                    <span class="stat-banner-label">Satisfação dos clientes</span>
                 </div>
             </div>
         </div>
@@ -722,142 +600,97 @@
     <!-- FAQ -->
     <section id="faq" class="faq">
         <div class="container">
-            <div class="section-header animate-on-scroll">
+            <div class="section-header">
                 <span class="section-tag">Dúvidas</span>
-                <h2>Perguntas frequentes</h2>
-                <p class="section-subtitle">Tire suas dúvidas sobre o processo, pagamento e resultados</p>
+                <h2>Perguntas Frequentes sobre Limpeza de Nome</h2>
+                <p class="section-subtitle">Tire suas dúvidas sobre como limpar seu nome, recuperar o score e voltar a ter crédito.</p>
             </div>
-
+            
             <div class="faq-list">
                 <div class="faq-item animate-on-scroll">
                     <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>A consulta de R$40 já limpa meu nome?</span>
+                        <span>Como funciona a consulta de CPF/CNPJ?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Não. A consulta é um relatório de análise que mostra exatamente o que está registrado no seu CPF/CNPJ. 
-                        É um diagnóstico completo que inclui: todas as dívidas, credores, valores, protestos, processos e score atual.
-                        <br><br>
-                        A partir desse diagnóstico, você pode optar por:</p>
-                        <ul>
-                            <li>Negociar diretamente com os credores usando as informações do relatório</li>
-                            <li>Contratar nosso serviço de intermediação (R$ 999) para que nós negociemos por você</li>
-                        </ul>
+                        <p>A consulta é simples. Você nos envia seu CPF ou CNPJ via WhatsApp, faz o pagamento e em até 24 horas recebe um relatório completo com todas as pendências encontradas em todas as bases de dados (Serasa, SPC, Boa Vista, etc.).</p>
                     </div>
                 </div>
-
-                <div class="faq-item animate-on-scroll delay-1">
+                
+                <div class="faq-item animate-on-scroll">
                     <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>Quanto tempo leva para eu receber o relatório?</span>
+                        <span>Em quanto tempo meu nome fica limpo?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Até <strong>24 horas úteis</strong> após a confirmação do pagamento. Na maioria dos casos, 
-                        enviamos em algumas horas.
-                        <br><br>
-                        O relatório é enviado em PDF para o e-mail cadastrado e também disponibilizado 
-                        via WhatsApp para sua conveniência.</p>
+                        <p>O prazo médio é de até 30 dias úteis, podendo variar conforme a complexidade do caso e tempo de resposta dos órgãos responsáveis. <strong>Não garantimos prazos fixos</strong>, pois dependemos de terceiros para concluir o processo.</p>
                     </div>
                 </div>
-
-                <div class="faq-item animate-on-scroll delay-2">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>Quais formas de pagamento vocês aceitam?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Aceitamos diversas formas de pagamento:</p>
-                        <ul>
-                            <li><strong>PIX:</strong> À vista com 5% de desconto (R$ 38,00)</li>
-                            <li><strong>Cartão de Crédito:</strong> Até 12x parcelado</li>
-                            <li><strong>Boleto Bancário:</strong> À vista ou parcelado em até 4x</li>
-                            <li><strong>Transferência Bancária:</strong> TED/DOC</li>
-                        </ul>
-                        <p>Para o serviço completo de intermediação (R$ 999), parcelamos em até 12x no cartão 
-                        ou 4x sem juros no boleto.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item animate-on-scroll delay-3">
+                
+                <div class="faq-item animate-on-scroll">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         <span>Vocês garantem a limpeza do nome?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p><strong>Não garantimos resultados.</strong> Oferecemos intermediação profissional, 
-                        mas a remoção de registros depende de:</p>
-                        <ul>
-                            <li>Autorização dos órgãos de proteção ao crédito</li>
-                            <li>Acordo com os credores</li>
-                            <li>Análise individual de cada caso</li>
-                        </ul>
-                        <p>O que garantimos é transparência total: você recebe um relatório honesto sobre suas chances 
-                        de sucesso antes de contratar qualquer serviço adicional.</p>
+                        <p><strong>Não garantimos resultados.</strong> Atuamos conforme as normas éticas e legais. O que garantimos é nosso comprometimento, transparência e uso de processos legais para tentar a regularização. Cada caso é único.</p>
                     </div>
                 </div>
-
-                <div class="faq-item animate-on-scroll delay-4">
+                
+                <div class="faq-item animate-on-scroll">
                     <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>Meus dados estão seguros?</span>
+                        <span>Como é feito o pagamento? É seguro?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Sim. Seguimos rigorosamente a <strong>LGPD (Lei Geral de Proteção de Dados)</strong>.
-                        <br><br>
-                        Nossas medidas de segurança incluem:</p>
-                        <ul>
-                            <li>Criptografia de ponta a ponta (SSL)</li>
-                            <li>Servidores seguros com backup diário</li>
-                            <li>Acesso restrito apenas aos consultores autorizados</li>
-                            <li>Seus dados nunca são vendidos ou compartilhados com terceiros</li>
-                        </ul>
+                        <p>Utilizamos gateways de pagamento seguros (Asaas, Mercado Pago). Nunca solicitamos transferência para conta pessoal. A consulta é pagamento à vista (PIX ou cartão). Para os serviços de limpeza de nome (CPF/CNPJ), oferecemos parcelamento em até 12x.</p>
                     </div>
                 </div>
-
-                <div class="faq-item animate-on-scroll delay-5">
+                
+                <div class="faq-item animate-on-scroll">
                     <button class="faq-question" onclick="toggleFaq(this)">
-                        <span>Tem garantia de satisfação?</span>
+                        <span>Meus dados estão protegidos?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Sim! Oferecemos <strong>garantia de 7 dias</strong> para a análise completa. 
-                        Se você não receber o relatório no prazo de 24 horas ou se não estiver satisfeito 
-                        com a qualidade do serviço, devolvemos 100% do seu dinheiro.
-                        <br><br>
-                        Para o serviço de intermediação, a garantia é de 30 dias após a contratação.</p>
+                        <p>Sim. Seguimos rigorosamente a LGPD. Seus dados são criptografados, armazenados em servidores seguros e nunca são vendidos ou compartilhados com terceiros.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
+    <!-- CTA Final -->
     <section class="final-cta">
         <div class="final-cta-bg"></div>
-        <div class="final-cta-content">
-            <h2>Pronto para descobrir sua situação real?</h2>
-            <p>Não deixe dívidas esquecidas prejudicarem seu futuro. A análise completa custa apenas <strong>R$ 40,00</strong> — menos que uma pizza e pode economizar milhares.</p>
-            
-            <div class="final-cta-price">
-                <div class="final-price-box">
-                    <span class="final-price-label">Apenas</span>
-                    <span class="final-price-value">R$ 40,00</span>
-                    <span class="final-price-note">ou 12x de R$ 4,17 no cartão</span>
+        <div class="container">
+            <div class="final-cta-content animate-on-scroll">
+                <h2>Limpe Seu Nome Hoje e Recupere Seu Crédito</h2>
+                <p>Dê o primeiro passo para limpar seu nome, aumentar seu score e voltar a conquistar seus objetivos.</p>
+                
+                <div class="final-cta-price">
+                    <div class="final-price-box">
+                        <span class="final-price-label">Consulta completa</span>
+                        <span class="final-price-value">R$ 40,00</span>
+                        <span class="final-price-note">À vista no PIX ou Cartão</span>
+                    </div>
                 </div>
-            </div>
-
-            <a href="https://wa.me/5585964626294?text=Olá!%20Quero%20fazer%20minha%20análise%20agora" class="btn-primary large" target="_blank">
-                <i class="fab fa-whatsapp"></i> 
-                <div class="btn-text">
-                    <span class="btn-main">Começar minha análise agora</span>
-                    <span class="btn-sub">Clique para falar no WhatsApp</span>
+                
+                <a href="https://chat.visionfinance.com.br" class="btn-primary xlarge pulse-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="btn-text">
+                        <span class="btn-main">Quero limpar meu nome agora</span>
+                        <span class="btn-sub">Clique para falar no WhatsApp</span>
+                    </div>
+                </a>
+                
+                <div class="final-cta-trust">
+                    <span><i class="fas fa-lock"></i> Pagamento seguro</span>
+                    <span><i class="fas fa-shield-alt"></i> Dados protegidos</span>
+                    <span><i class="fas fa-check-circle"></i> Empresa verificada</span>
                 </div>
-            </a>
-
-            <div class="final-cta-trust">
-                <span><i class="fas fa-lock"></i> Pagamento seguro</span>
-                <span><i class="fas fa-file-alt"></i> Relatório em 24h</span>
-                <span><i class="fas fa-undo"></i> 7 dias de garantia</span>
+                
+                <p class="final-note">Consulta simples, online e segura.</p>
             </div>
         </div>
     </section>
@@ -866,66 +699,66 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-main">
+                <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="img/logo_rodape.png" alt="Vision Finance" class="footer-logo-img">
+                        <div class="logo-glow-footer"></div>
+                        <img src="img/logo.jpeg" alt="Vision Finance" class="footer-logo-img">
                         <div class="footer-logo-text">
                             <span>VISION</span>
                             <span>FINANCE</span>
                         </div>
                     </div>
                     <p class="footer-desc">
-                        Especialistas em análise e regularização financeira desde 2005. 
-                        Atuamos com transparência, ética e respeito ao cliente.
+                        Especialistas em regularização financeira e limpeza de nome. 
+                        Mais de 19 anos ajudando pessoas e empresas a recuperarem o crédito.
                     </p>
-                    
                     <div class="footer-contact">
-                        <a href="https://wa.me/5585964626294" target="_blank">
-                            <i class="fab fa-whatsapp"></i> (85) 96462-6294
+                        <a href="https://chat.visionfinance.com.br" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Falar no WhatsApp
                         </a>
-                        <span class="footer-hours">
-                            <i class="fas fa-clock"></i> Atendimento: Seg-Sex, 8h às 18h
-                        </span>
+                        <div class="footer-hours">
+                            <i class="far fa-clock"></i> Atendimento: Seg-Sex 8h às 18h
+                        </div>
                     </div>
                 </div>
-
-                <div class="footer-links">
+                
+                <div class="footer-links-col">
                     <h4>Links Rápidos</h4>
                     <a href="#como-funciona">Como Funciona</a>
                     <a href="#precos">Preços</a>
-                    <a href="#depoimentos">Depoimentos</a>
-                    <a href="#faq">FAQ</a>
+                    <a href="#servicos">Serviços</a>
+                    <a href="#faq">Perguntas Frequentes</a>
                 </div>
-
+                
                 <div class="footer-legal">
-                    <h4>Aviso Legal</h4>
-                    <p>A Vision Finance presta serviços de consultoria e intermediação financeira.</p>
+                    <h4>Informações Legais</h4>
+                    <p>CNPJ: XX.XXX.XXX/0001-XX</p>
                     <p class="disclaimer">
-                        Não garantimos a exclusão de registros em órgãos de proteção ao crédito. 
-                        Cada caso é analisado individualmente.
+                        <strong>Disclaimer:</strong> Não garantimos resultados específicos. 
+                        Os prazos são estimativas. Cada caso é analisado individualmente.
                     </p>
                 </div>
             </div>
-
+            
             <div class="footer-bottom">
                 <div class="social-links">
-                    <a href="https://wa.me/5585964626294" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://chat.visionfinance.com.br" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
-                <p class="copyright">
-                    © 2024 Vision Finance. Todos os direitos reservados.<br>
-                    CNPJ: XX.XXX.XXX/0001-XX
-                </p>
+                <div class="copyright">
+                    <p>&copy; 2026 Vision Finance. Todos os direitos reservados.</p>
+                    <p>🔒 Dados protegidos conforme LGPD.</p>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/5585964626294?text=Olá!%20Gostaria%20de%20saber%20mais" class="whatsapp-float" target="_blank">
+    <a href="https://chat.visionfinance.com.br" class="whatsapp-float" target="_blank" aria-label="Fale no WhatsApp">
         <i class="fab fa-whatsapp"></i>
-        <span class="whatsapp-tooltip">Falar no WhatsApp</span>
+        <span class="whatsapp-tooltip">Fale conosco no WhatsApp</span>
     </a>
 
     <script src="script.js"></script>
