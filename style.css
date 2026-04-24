@@ -58,54 +58,6 @@ section {
     padding: 100px 0;
 }
 
-/* Urgency Bar */
-.urgency-bar {
-    background: linear-gradient(90deg, var(--black-light) 0%, var(--gray-dark) 100%);
-    border-bottom: 1px solid var(--blue-electric);
-    color: var(--white);
-    padding: 12px 0;
-    font-size: 14px;
-    font-weight: 600;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1001;
-    box-shadow: 0 2px 10px rgba(0, 102, 255, 0.2);
-}
-
-.urgency-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-.urgency-icon {
-    font-size: 18px;
-    color: var(--green-neon);
-    animation: pulse 1.5s infinite;
-}
-
-.urgency-counter {
-    background: rgba(0, 210, 106, 0.15);
-    border: 1px solid var(--green-neon);
-    color: var(--green-neon);
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 700;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.2); opacity: 0.8; }
-}
-
 /* Header */
 #header {
     background: rgba(10, 10, 10, 0.95);
@@ -113,7 +65,7 @@ section {
     border-bottom: 1px solid var(--gray-dark);
     position: fixed;
     width: 100%;
-    top: 45px;
+    top: 0;
     z-index: 1000;
     padding: 0;
 }
@@ -249,13 +201,12 @@ section {
 /* Hero */
 .hero {
     background: var(--gradient-hero);
-    padding: 160px 0 100px;
+    padding: 140px 0 100px;
     position: relative;
     overflow: hidden;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    margin-top: 45px;
 }
 
 .hero-bg-elements {
@@ -2221,7 +2172,7 @@ footer {
     .mobile-menu-btn { display: block; }
     .nav-cta span { display: none; }
     .nav-cta { padding: 12px; }
-    .hero { padding: 140px 0 80px; }
+    .hero { padding: 120px 0 80px; }
     .hero-title { font-size: 32px; }
     .price-value { font-size: 56px; }
     .price-content { flex-direction: column; gap: 24px; }
@@ -2247,7 +2198,6 @@ footer {
     .stat-banner-number { font-size: 28px; }
     .testimonial-card { padding: 24px; }
     .consulta-highlight { padding: 32px 20px; }
-    .price-big .amount { font-size: 48px; }
     .shield-icon-big { width: 60px; height: 60px; }
     .shield-icon-big i { font-size: 30px; }
     .banner-content h2 { font-size: 24px; }

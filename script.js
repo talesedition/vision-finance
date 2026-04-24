@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     initScrollAnimations();
     initHeaderScroll();
-    initUrgencyCounter();
     initFaqAccordion();
     initMobileMenu();
     initExitIntent();
@@ -218,7 +217,6 @@ function initScrollAnimations() {
 // Header dinâmico com scroll
 function initHeaderScroll() {
     const header = document.getElementById('header');
-    const urgencyBar = document.querySelector('.urgency-bar');
     let lastScroll = 0;
     
     window.addEventListener('scroll', () => {
@@ -238,46 +236,12 @@ function initHeaderScroll() {
         // Esconder/mostrar header ao rolar para baixo/cima
         if (currentScroll > lastScroll && currentScroll > 300) {
             header.style.transform = 'translateY(-100%)';
-            if (urgencyBar) urgencyBar.style.transform = 'translateY(-100%)';
         } else {
             header.style.transform = 'translateY(0)';
-            if (urgencyBar) urgencyBar.style.transform = 'translateY(0)';
         }
         
         lastScroll = currentScroll;
     });
-}
-
-// Contador de urgência (vagas disponíveis)
-function initUrgencyCounter() {
-    const counter = document.querySelector('.urgency-counter strong');
-    if (!counter) return;
-    
-    let count = 7;
-    const minCount = 2;
-    const maxCount = 12;
-    
-    // Atualiza a cada 15-25 segundos aleatoriamente
-    setInterval(() => {
-        const shouldChange = Math.random() > 0.6;
-        
-        if (shouldChange) {
-            // Decide se aumenta ou diminui
-            if (count > minCount && Math.random() > 0.5) {
-                count--;
-            } else if (count < maxCount) {
-                count++;
-            }
-            
-            counter.textContent = count + ' vagas';
-            counter.style.color = '#00D26A';
-            counter.style.transform = 'scale(1.1)';
-            
-            setTimeout(() => {
-                counter.style.transform = 'scale(1)';
-            }, 300);
-        }
-    }, 20000);
 }
 
 // FAQ Accordion
