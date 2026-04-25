@@ -19,17 +19,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Animação de digitação no Hero
 function initTypingAnimation() {
-    const words = ['conquistar crédito', 'limpar seu nome', 'aumentar o score', 'regularizar dívidas'];
+    const words = ['conquistar crédito', 'ter score alto', 'comprar seu imóvel', 'realizar seus sonhos'];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
     const typingElement = document.getElementById('typing');
-    
+
     if (!typingElement) return;
-    
+
     function type() {
         const currentWord = words[wordIndex];
-        
+
         if (isDeleting) {
             typingElement.textContent = currentWord.substring(0, charIndex - 1);
             charIndex--;
@@ -37,9 +37,9 @@ function initTypingAnimation() {
             typingElement.textContent = currentWord.substring(0, charIndex + 1);
             charIndex++;
         }
-        
+
         let typeSpeed = isDeleting ? 50 : 100;
-        
+
         if (!isDeleting && charIndex === currentWord.length) {
             typeSpeed = 3000;
             isDeleting = true;
@@ -48,22 +48,22 @@ function initTypingAnimation() {
             wordIndex = (wordIndex + 1) % words.length;
             typeSpeed = 500;
         }
-        
+
         setTimeout(type, typeSpeed);
     }
-    
+
     type();
 }
 
 // Animação de números contadores
 function animateNumbers() {
     const stats = document.querySelectorAll('.stat-number[data-target]');
-    
+
     const observerOptions = {
         threshold: 0.5,
         rootMargin: '0px'
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -71,28 +71,28 @@ function animateNumbers() {
                 const countTo = parseInt(target.getAttribute('data-target'));
                 const duration = 2000;
                 const startTime = performance.now();
-                
+
                 function updateNumber(currentTime) {
                     const elapsed = currentTime - startTime;
                     const progress = Math.min(elapsed / duration, 1);
                     const easeOutQuart = 1 - Math.pow(1 - progress, 4);
                     const current = Math.floor(countTo * easeOutQuart);
-                    
+
                     target.textContent = current.toLocaleString('pt-BR');
-                    
+
                     if (progress < 1) {
                         requestAnimationFrame(updateNumber);
                     } else {
                         target.textContent = countTo.toLocaleString('pt-BR');
                     }
                 }
-                
+
                 requestAnimationFrame(updateNumber);
                 observer.unobserve(target);
             }
         });
     }, observerOptions);
-    
+
     stats.forEach(stat => observer.observe(stat));
 }
 
@@ -100,13 +100,13 @@ function animateNumbers() {
 function initScoreAnimation() {
     const speedometerSection = document.querySelector('.score-section');
     if (!speedometerSection) return;
-    
+
     const needle = document.getElementById('needle');
     const scoreValue = document.getElementById('scoreValue');
     const phases = document.querySelectorAll('.score-phase');
-    
+
     let animated = false;
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting && !animated) {
@@ -115,41 +115,38 @@ function initScoreAnimation() {
             }
         });
     }, { threshold: 0.5 });
-    
+
     observer.observe(speedometerSection);
-    
+
     function animateSpeedometer() {
         let score = 0;
         const targetScore = 850;
         const duration = 3000;
         const startTime = performance.now();
-        
-        // Animação da agulha e número
+
         function updateScore(currentTime) {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
             const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-            
+
             score = Math.floor(targetScore * easeOutQuart);
             scoreValue.textContent = score;
-            
-            // Rotaciona a agulha de -90 a 90 graus
+
             const rotation = -90 + (180 * easeOutQuart);
             if (needle) {
                 needle.style.transform = `translateX(-50%) rotate(${rotation}deg)`;
             }
-            
-            // Atualiza fases ativas
+
             updatePhases(progress);
-            
+
             if (progress < 1) {
                 requestAnimationFrame(updateScore);
             }
         }
-        
+
         requestAnimationFrame(updateScore);
     }
-    
+
     function updatePhases(progress) {
         phases.forEach((phase, index) => {
             const threshold = (index + 1) / phases.length;
@@ -168,21 +165,20 @@ function initSmoothScroll() {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             e.preventDefault();
             const target = document.querySelector(targetId);
-            
+
             if (target) {
                 const headerOffset = 100;
                 const elementPosition = target.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                
+
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: 'smooth'
                 });
-                
-                // Fecha menu mobile se aberto
+
                 const mobileMenu = document.getElementById('mobileMenu');
                 if (mobileMenu && mobileMenu.classList.contains('active')) {
                     mobileMenu.classList.remove('active');
@@ -196,12 +192,12 @@ function initSmoothScroll() {
 // Animações ao scroll (fade-in, slide-up)
 function initScrollAnimations() {
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    
+
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -210,7 +206,7 @@ function initScrollAnimations() {
             }
         });
     }, observerOptions);
-    
+
     animatedElements.forEach(el => observer.observe(el));
 }
 
@@ -218,11 +214,10 @@ function initScrollAnimations() {
 function initHeaderScroll() {
     const header = document.getElementById('header');
     let lastScroll = 0;
-    
+
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
-        
-        // Efeito de transparência/blur
+
         if (currentScroll > 100) {
             header.style.boxShadow = '0 4px 30px rgba(0, 102, 255, 0.15)';
             header.style.background = 'rgba(10, 10, 10, 0.98)';
@@ -232,46 +227,35 @@ function initHeaderScroll() {
             header.style.background = 'rgba(10, 10, 10, 0.95)';
             header.style.backdropFilter = 'blur(10px)';
         }
-        
-        // Esconder/mostrar header ao rolar para baixo/cima
+
         if (currentScroll > lastScroll && currentScroll > 300) {
             header.style.transform = 'translateY(-100%)';
         } else {
             header.style.transform = 'translateY(0)';
         }
-        
+
         lastScroll = currentScroll;
     });
 }
 
-// FAQ Accordion
+// FAQ Accordion - Corrigido para usar apenas classes CSS
 function initFaqAccordion() {
     const faqItems = document.querySelectorAll('.faq-item');
-    
+
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
-        
+
         question.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
-            
-            // Fecha todos
+
+            // Fecha todos os itens
             faqItems.forEach(otherItem => {
                 otherItem.classList.remove('active');
-                const answer = otherItem.querySelector('.faq-answer');
-                if (answer) {
-                    answer.style.maxHeight = '0';
-                    answer.style.paddingBottom = '0';
-                }
             });
-            
+
             // Abre o clicado se não estava ativo
             if (!isActive) {
                 item.classList.add('active');
-                const answer = item.querySelector('.faq-answer');
-                if (answer) {
-                    answer.style.maxHeight = answer.scrollHeight + 24 + 'px';
-                    answer.style.paddingBottom = '24px';
-                }
             }
         });
     });
@@ -281,15 +265,14 @@ function initFaqAccordion() {
 function initMobileMenu() {
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const mobileMenu = document.getElementById('mobileMenu');
-    
+
     if (!mobileBtn || !mobileMenu) return;
-    
+
     mobileBtn.addEventListener('click', () => {
         mobileMenu.classList.toggle('active');
         document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     });
-    
-    // Fecha ao clicar fora
+
     document.addEventListener('click', (e) => {
         if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target)) {
             mobileMenu.classList.remove('active');
@@ -298,28 +281,26 @@ function initMobileMenu() {
     });
 }
 
-// Exit Intent Popup (quando usuário tenta sair)
+// Exit Intent Popup
 function initExitIntent() {
     let exitIntentShown = false;
-    
+
     document.addEventListener('mouseout', (e) => {
         if (e.clientY < 0 && !exitIntentShown && !localStorage.getItem('exitPopupShown')) {
             showExitPopup();
         }
     });
-    
-    // Também mostra após 60 segundos na página
+
     setTimeout(() => {
         if (!exitIntentShown && !localStorage.getItem('exitPopupShown')) {
             showExitPopup();
         }
     }, 60000);
-    
+
     function showExitPopup() {
         exitIntentShown = true;
         localStorage.setItem('exitPopupShown', 'true');
-        
-        // Cria popup dinamicamente
+
         const popup = document.createElement('div');
         popup.id = 'exitPopup';
         popup.innerHTML = `
@@ -381,10 +362,9 @@ function initExitIntent() {
                 </div>
             </div>
         `;
-        
+
         document.body.appendChild(popup);
-        
-        // Fecha ao clicar fora
+
         popup.addEventListener('click', (e) => {
             if (e.target === popup) {
                 popup.remove();
@@ -408,7 +388,7 @@ function initScrollProgress() {
         transition: width 0.1s;
     `;
     document.body.appendChild(progressBar);
-    
+
     window.addEventListener('scroll', () => {
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -417,13 +397,12 @@ function initScrollProgress() {
     });
 }
 
-// Tracking de cliques no WhatsApp (conversão)
+// Tracking de cliques no WhatsApp
 function initWhatsAppTracking() {
     const whatsappLinks = document.querySelectorAll('a[href*="chat.visionfinance.com.br"]');
-    
+
     whatsappLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            // Evento para analytics (Google Analytics, Facebook Pixel, etc)
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'conversion', {
                     'send_to': 'AW-XXXXXXXXX/XXXXXXXX',
@@ -431,12 +410,11 @@ function initWhatsAppTracking() {
                     'currency': 'BRL'
                 });
             }
-            
+
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Contact');
             }
-            
-            // Feedback visual
+
             showToast('Redirecionando para o WhatsApp...');
         });
     });
@@ -445,7 +423,7 @@ function initWhatsAppTracking() {
 // Lazy Loading de imagens
 function initLazyLoad() {
     const images = document.querySelectorAll('img[data-src]');
-    
+
     const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -457,17 +435,17 @@ function initLazyLoad() {
             }
         });
     });
-    
+
     images.forEach(img => imageObserver.observe(img));
 }
 
 // Parallax suave nos elementos
 function initParallax() {
     const parallaxElements = document.querySelectorAll('.hero-circle, .hero-grid');
-    
+
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
-        
+
         parallaxElements.forEach((el, index) => {
             const speed = 0.5 + (index * 0.1);
             el.style.transform = `translateY(${scrolled * speed}px)`;
@@ -496,14 +474,14 @@ function showToast(message, type = 'info') {
         box-shadow: 0 4px 20px rgba(0, 102, 255, 0.3);
     `;
     toast.innerHTML = `<i class="fas fa-info-circle" style="color: #00D26A; margin-right: 8px;"></i> ${message}`;
-    
+
     document.body.appendChild(toast);
-    
+
     setTimeout(() => {
         toast.style.opacity = '1';
         toast.style.transform = 'translateX(-50%) translateY(0)';
     }, 100);
-    
+
     setTimeout(() => {
         toast.style.opacity = '0';
         toast.style.transform = 'translateX(-50%) translateY(100px)';
@@ -512,29 +490,6 @@ function showToast(message, type = 'info') {
 }
 
 // Funções globais para uso inline no HTML
-window.toggleFaq = function(button) {
-    const faqItem = button.closest('.faq-item');
-    const isActive = faqItem.classList.contains('active');
-    
-    document.querySelectorAll('.faq-item').forEach(item => {
-        item.classList.remove('active');
-        const answer = item.querySelector('.faq-answer');
-        if (answer) {
-            answer.style.maxHeight = '0';
-            answer.style.paddingBottom = '0';
-        }
-    });
-    
-    if (!isActive) {
-        faqItem.classList.add('active');
-        const answer = faqItem.querySelector('.faq-answer');
-        if (answer) {
-            answer.style.maxHeight = answer.scrollHeight + 24 + 'px';
-            answer.style.paddingBottom = '24px';
-        }
-    }
-};
-
 window.toggleMenu = function() {
     const mobileMenu = document.getElementById('mobileMenu');
     if (mobileMenu) {
